@@ -52,6 +52,7 @@ namespace PokemonGBATextReader
 			txtTextoCargado.Text="";
 			if(!string.IsNullOrEmpty(txtOffset.Text)&&!string.IsNullOrEmpty(txtLongitud.Text))
 			{
+				try{
 				if(txtOffset.Text.Length>2 &&txtOffset.Text[1]==INDICADORHEX)
 					offset=(int)((Hex)txtOffset.Text.Substring(2));
 				else offset=Convert.ToInt32(txtOffset.Text);
@@ -61,7 +62,9 @@ namespace PokemonGBATextReader
 				else lenght=Convert.ToInt32(txtLongitud.Text);
 				
 				txtTextoCargado.Text=BloqueString.ToString(rom.Data.SubArray(offset,lenght));
-			
+				}catch{
+					MessageBox.Show("El formato para escribir en hexadecimal es 0xNumero en hexadecimal, si no ha sido por eso te has pasado con el numero...es demasiado grande","A Ocurrido un error",MessageBoxButton.OK,MessageBoxImage.Warning);
+				}
 			}else{
 				MessageBox.Show("falts poner la informacion para la traducción [inicio,longitud]","Atención",MessageBoxButton.OK,MessageBoxImage.Exclamation);
 			}
