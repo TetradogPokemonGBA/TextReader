@@ -38,6 +38,7 @@ namespace PokemonGBATextReader
 			{
 				rom=new RomGba(open.FileName);
 				btnCargarTexto.IsEnabled=true;
+				miBuscar.IsEnabled=true;
 			}else if(rom!=null){
 				MessageBox.Show("No se ha cambiado la rom!");
 			}else{
@@ -73,6 +74,18 @@ namespace PokemonGBATextReader
 		{
 			if(MessageBox.Show("Esta app esta bajo licencia GNU v3 el autor es pikachu240 y se la dedico a sangus103\n¿Quieres ver el codigo fuente?","Sobre la app",MessageBoxButton.YesNo,MessageBoxImage.Information)==MessageBoxResult.Yes)
 				System.Diagnostics.Process.Start("https://github.com/TetradogPokemonGBA/TextReader");
+		}
+		void MiBuscar_Click(object sender, RoutedEventArgs e)
+		{
+			WindowsBuscar winBuscar=new WindowsBuscar(rom);
+			winBuscar.ShowDialog();
+			if(winBuscar.Encontrado)
+			{
+				txtOffset.Text=winBuscar.OffsetEncontrado+"";
+				txtLongitud.Text=winBuscar.Lenght+"";
+				BtnCargarTexto_Click(this,e);
+			}
+				
 		}
 	}
 }

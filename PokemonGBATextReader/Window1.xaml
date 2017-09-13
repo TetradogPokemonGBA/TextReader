@@ -18,6 +18,10 @@
 				x:Name="miCargar"
 				Header="Cargar"
 				Click="MiCargar_Click" />
+				<MenuItem
+				x:Name="miBuscar"
+				Header="Buscar"
+				Click="MiBuscar_Click" IsEnabled="False"/>
 		<MenuItem
 				x:Name="miSobre"
 				Header="Sobre"

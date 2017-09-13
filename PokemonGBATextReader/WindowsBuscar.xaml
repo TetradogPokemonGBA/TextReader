@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Window
+	x:Class="PokemonGBATextReader.WindowsBuscar" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	Title="PokemonGBATextReader"
+	Width="428"
+	Height="179"
+	WindowStyle="ToolWindow">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="1.7027027027027*" />
+			<RowDefinition
+				Height="0.287671232876712*" />
+		</Grid.RowDefinitions>
+		<ScrollViewer
+			VerticalScrollBarVisibility="Auto">
+			<TextBox
+				x:Name="txtTextoABuscar" />
+		</ScrollViewer>
+		<Grid
+			Grid.Row="1">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+			<TextBlock
+				x:Name="tbMensajeNoEncontrado"
+				Foreground="Red" Visibility="Hidden">
+				<Run
+					Text="No se ha encontrado" />
+			</TextBlock>
+			<Button
+				x:Name="btnBuscar"
+				Grid.Column="1"
+				Content="Buscar"
+				Click="btnBuscar_Click" />
+		</Grid>
+	</Grid>
+</Window>
